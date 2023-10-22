@@ -22,10 +22,11 @@ spec:
               volumeClaimTemplate:
                 spec:
                   storageClassName: synostorage
-                  accessModes: ["ReadWriteOnce"]
+                  accessModes:
+                    - ReadWriteOnce
                   resources:
                     requests:
-                    storage: 50Gi
+                      storage: 30Gi
 
 
   destination:
