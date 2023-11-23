@@ -16,6 +16,18 @@ spec:
         grafana:
           service:
             type: LoadBalancer
+        prometheus:
+          prometheusSpec:
+            storageSpec:
+              volumeClaimTemplate:
+                spec:
+                  storageClassName: synostorage
+                  accessModes:
+                    - ReadWriteOnce
+                  resources:
+                    requests:
+                      storage: 30Gi
+
 
   destination:
     server: https://kubernetes.default.svc
