@@ -21,7 +21,7 @@ spec:
             storageSpec:
               volumeClaimTemplate:
                 spec:
-                  storageClassName: synology-iscsi-storage
+                  storageClassName: synostorage
                   accessModes:
                     - ReadWriteOnce
                   resources:
