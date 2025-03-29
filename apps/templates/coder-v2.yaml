@@ -46,7 +46,7 @@ spec:
             #  secretNames:
             #    - my-tls-secret-name
     repoURL: https://helm.coder.com/v2
-    chart: coder-v2/coder
+    chart: coder
     targetRevision: 2.20.2
   syncPolicy:
     automated:
