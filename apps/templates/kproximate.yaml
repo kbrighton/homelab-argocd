@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kproximate
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kproximate
+  project: default
+  source:
+    helm:
+      values:  |
+        kproximate:
+          config:
+            kpNodeCores: 4
+            kpNodeMemory: 4096
+            kpNodeNamePrefix: kp-node
+            kpNodeTemplateName: kproxtemplate
+            kpNodeLabels: "topology.kubernetes.io/region=proxmox-cluster,topology.kubernetes.io/zone={{ .TargetHost }}"
+            loadHeadroom: 0.2
+            maxKpNodes: 4
+            pmUrl: https://192.168.1.24:8006/api2/json
+            pmUserID: kproximate@pam!kproximate
+
+          secrets:
+            pmToken: 19ada4d2-ac59-4d44-9c8d-05af63dc9c7f
+            sshKey: AAAAB3NzaC1yc2EAAAADAQABAAABgQC0cgSyKf2hamQGl/DzrbnrdrY7w0zSh3Q94o3rtJGwPhQbVIX1TxXK8HMWc14lOiWNSD0zpBLEsXt9biduhcND5Nq203xXArrBBceLUpRYXHN5ioeegx7vhJ1i+DggJS8+rTNcoozD1gx3vuxuJFFHWg7zW2WQt/GbYocw9u0TFife4MX85Dx0DbWNEg3pb/kixeoA1aHRYmayfh8HfwzkEr3WkUBXz7cVjMcpJKPmoC/7zgmvRUDu1Pl289miF3kmZjTfm5+c7s0LGq1GD+2HMR3+UfbjKueGDMFrC2sr+3IQZ0wpPv2DRxk41arkveio3Q9BKTchTDw4mgHzH85hGIxdLsDqPsVwmlhE0mfRPW30El1QiXksWCIZJ+yI50q9MBTcEASZS3gbk4XgLu5QfDYBWxksGaxtIYvErNL/mbYdOdOylDf5DRTr5kKB+qW3TD7/njVPzk8bCpWlEugMtUyFLiI81IVGJhCwuvss2kQpinUf4vsk/0L/CtcaLaU=
+
+        rabbitmq:
+          auth:
+            password: rabbitmq
+    repoURL: oci://ghcr.io/jedrw/kproximate
+    chart: kproximate
+    targetRevision: 0.2.2
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
