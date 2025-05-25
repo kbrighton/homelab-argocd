@@ -40,7 +40,12 @@ spec:
             # (Optional) For production deployments the access URL should be set.
             # If you're just trying Coder, access the dashboard via the service IP.
             - name: CODER_ACCESS_URL
-              value: "http://192.168.0.4"
+              value: "https://coder.kylebrighton.com"
+
+            - name: CODER_WILDCARD_ACCESS_URL
+              value: "*.coder.kylebrighton.com"
+            - name: CODER_HTTP_ACCESS
+              value: "192.168.0.4"
 
             #tls:
             #  secretNames:
