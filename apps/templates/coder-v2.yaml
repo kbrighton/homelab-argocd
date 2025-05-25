@@ -46,6 +46,10 @@ spec:
               value: "*.coder.kylebrighton.com"
             - name: CODER_HTTP_ACCESS
               value: "192.168.0.4"
+            - name: CODER_OAUTH2_GITHUB_ALLOW_SIGNUPS
+              value: "true"
+            - name: CODER_OAUTH2_GITHUB_ALLOWED_ORGS
+              value: "nexuslarptools"
 
             #tls:
             #  secretNames:
