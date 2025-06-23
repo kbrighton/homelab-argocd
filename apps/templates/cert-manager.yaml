@@ -17,7 +17,7 @@ spec:
           value: "true"
     repoURL: https://charts.jetstack.io
     chart: cert-manager
-    targetRevision: v1.17.2
+    targetRevision: v1.18.1
   syncPolicy:
     automated:
       prune: true
