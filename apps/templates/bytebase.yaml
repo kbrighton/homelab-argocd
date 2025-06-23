@@ -23,7 +23,7 @@ spec:
               existingPgURLSecretKey: postgresurl
 
     repoURL: https://bytebase.github.io/bytebase/
-    chart: bytebase/bytebase
+    chart: bytebase
     targetRevision: 1.1.1
   syncPolicy:
     automated:
