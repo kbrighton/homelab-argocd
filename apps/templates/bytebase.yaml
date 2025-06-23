@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bytebase
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: bytebase
+  project: default
+  source:
+    helm:
+      values:  |
+        bytebase:
+          version: latest
+          option:
+            external-url: "bytebase.kylebrighton.com"
+            port: 8080
+            externalPg:
+              existingPgURLSecret: postgressec
+              existingPgURLSecretKey: postgresurl
+
+    repoURL: https://bytebase.github.io/bytebase/
+    chart: bytebase/bytebase
+    targetRevision: 1.1.1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
