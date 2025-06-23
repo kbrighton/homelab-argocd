@@ -16,7 +16,7 @@ spec:
         bytebase:
           version: latest
           option:
-            external-url: "bytebase.kylebrighton.com"
+            external-url: "https://bytebase.kylebrighton.com"
             port: 8080
             externalPg:
               existingPgURLSecret: postgressec
