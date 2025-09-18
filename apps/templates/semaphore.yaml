@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: semaphoreui
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: semaphore
+  project: default
+  source:
+    helm:
+      values:  |
+        ingress:
+          enabled: false
+          hosts:
+            - host: semaphore.kylebrighton.com
+              paths:
+                - path: /
+                  pathType: Prefix
+        persistence:
+          storageClass: synostorage
+        database:
+          persistence:
+            storageClass: synostorage
+        service:
+          type: LoadBalancer
+
+    repoURL: https://semaphoreui.github.io/charts
+    chart: semaphoreui
+    targetRevision: 16.0.2
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
