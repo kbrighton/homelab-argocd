@@ -29,7 +29,7 @@ spec:
           type: LoadBalancer
 
     repoURL: https://semaphoreui.github.io/charts
-    chart: semaphoreui
+    chart: semaphore
     targetRevision: 16.0.4
   syncPolicy:
     automated:
