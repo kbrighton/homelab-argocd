@@ -1,0 +1,69 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: traefik
+  project: default
+  source:
+    helm:
+      values:  |
+        providers:
+          kubernetesIngress:
+            publishedService:
+              enabled: false     #if you want to use with kubernetes ingress, set it to true.
+          kubernetesGateway:
+            enabled: true
+
+        gateway:
+          namespacePolicy: All
+
+        ingressRoute:
+          dashboard:
+            enabled: true
+            entryPoints:
+              - web
+              - websecure
+
+        service:
+          enabled: true
+          spec:
+            externalTrafficPolicy: Local
+          annotations:
+            service.beta.kubernetes.io/metal-lb: "true"
+            metallb.universe.tf/address-pool: first-pool # Optional: If using MetalLB
+          type: LoadBalancer # Change to LoadBalancer if using MetalLB
+          ports:
+            web:
+              port: 80
+              targetPort: 80
+            websecure:
+              port: 443
+              targetPort: 443
+
+        # Additional configuration for dashboard access
+        dashboard:
+          enabled: true
+          ingress:
+            enabled: true
+            path: /dashboard/
+            pathType: Prefix
+            annotations:
+              kubernetes.io/ingress.class: traefik
+            hosts:
+              - host: "*" #traefik.example.com  # Change to your desired host
+                paths:
+                  - /
+
+    chart: traefik/traefik
+    repoURL: https://traefik.github.io/charts
+    targetRevision: 37.1.2
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
