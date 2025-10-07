@@ -56,7 +56,7 @@ spec:
             annotations:
               kubernetes.io/ingress.class: traefik
             hosts:
-              - host: "*" #traefik.example.com  # Change to your desired host
+              - host: "dashboard.kylebrighton.com" #traefik.example.com  # Change to your desired host
                 paths:
                   - /
 
