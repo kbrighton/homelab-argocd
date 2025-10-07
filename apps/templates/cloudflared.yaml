@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloudflared
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cloudflare
+  project: default
+  source:
+    helm:
+      values:  |
+        tunnelSecrets:
+          existingConfigJsonFileSecret:
+            name: config-json-file-secret
+          existingPemFileSecret:
+            name: cert-pem-file-secret
+
+        ingress:
+        - hostname: kylebrighton.com # or "*.example.com" (ensure a CNAME record for "*" is defined in your DNS)
+          service: http://192.168.0.8:80
+
+        - service: http_status:404
+
+    repoURL: https://community-charts.github.io/helm-charts
+    chart: cloudflared
+    targetRevision: 2.2.1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
