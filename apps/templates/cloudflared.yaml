@@ -13,6 +13,9 @@ spec:
   source:
     helm:
       values:  |
+
+        tunnelConfig:
+          name: traefik-tunnel
         tunnelSecrets:
           existingConfigJsonFileSecret:
             name: config-json-file-secret
