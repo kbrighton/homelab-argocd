@@ -60,7 +60,7 @@ spec:
                 paths:
                   - /
 
-    chart: traefik/traefik
+    chart: traefik
     repoURL: https://traefik.github.io/charts
     targetRevision: 37.1.2
   syncPolicy:
