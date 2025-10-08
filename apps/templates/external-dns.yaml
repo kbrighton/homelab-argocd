@@ -19,8 +19,8 @@ spec:
         sources:
         - service
         - ingress
-        - tcproute
-        - httproute
+        - gateway-tcproute
+        - gateway-httproute
         env:
           - name: CF_API_TOKEN
             valueFrom:
