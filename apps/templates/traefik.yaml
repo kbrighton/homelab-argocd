@@ -24,6 +24,8 @@ spec:
                 enabled: true
 
         gateway:
+          annotations:
+                cert-manager.io/issuer: letsencrypt-prod
           listeners:
             web:           # HTTP listener that matches entryPoint `web`
               port: 8000
@@ -38,9 +40,7 @@ spec:
                 from: All
               mode: Passthrough
               certificateRefs:
-                - kind: Secret
-                  name: local-selfsigned-tls  # the Secret we created before the installation
-                  group: ""
+                - name: traefik-tls  # the Secret we created before the installation
 
         logs:
           general:
