@@ -26,6 +26,7 @@ spec:
         gateway:
           annotations:
                 cert-manager.io/cluster-issuer: letsencrypt-prod
+                external-dns.alpha.kubernetes.io/target: 7c6ce3b1-97d9-4ac3-aefa-516c85871114.cfargotunnel.com
           listeners:
             web:           # HTTP listener that matches entryPoint `web`
               port: 8000
