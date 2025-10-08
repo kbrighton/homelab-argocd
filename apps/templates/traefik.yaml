@@ -30,12 +30,14 @@ spec:
             web:           # HTTP listener that matches entryPoint `web`
               port: 8000
               protocol: HTTP
+              hostname: "*.kylebrighton.com"
               namespacePolicy:
                 from: All
 
             websecure:         # HTTPS listener that matches entryPoint `websecure`
               port: 8443
               protocol: HTTPS  # TLS terminates inside Traefik
+              hostname: "*.kylebrighton.com"
               namespacePolicy:
                 from: All
               mode: Terminate
