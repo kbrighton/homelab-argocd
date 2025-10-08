@@ -38,7 +38,7 @@ spec:
               protocol: HTTPS  # TLS terminates inside Traefik
               namespacePolicy:
                 from: All
-              mode: Passthrough
+              mode: Terminate
               certificateRefs:
                 - name: traefik-tls  # the Secret we created before the installation
 
