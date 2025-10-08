@@ -36,11 +36,7 @@ spec:
               protocol: HTTPS  # TLS terminates inside Traefik
               namespacePolicy:
                 from: All
-              mode: Terminate
-              certificateRefs:
-                - kind: Secret
-                  name: local-selfsigned-tls  # the Secret we created before the installation
-                  group: ""
+              mode: Passthrough
 
         logs:
           general:
