@@ -25,7 +25,7 @@ spec:
 
         gateway:
           annotations:
-                cert-manager.io/clusterissuer: letsencrypt-prod
+                cert-manager.io/cluster-issuer: letsencrypt-prod
           listeners:
             web:           # HTTP listener that matches entryPoint `web`
               port: 8000
