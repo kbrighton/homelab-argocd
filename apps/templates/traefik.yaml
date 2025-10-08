@@ -13,6 +13,7 @@ spec:
   source:
     helm:
       values:  |
+
         providers:
           kubernetesIngress:
             publishedService:
