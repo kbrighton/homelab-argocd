@@ -17,6 +17,7 @@ spec:
           service:
             type: LoadBalancer
         prometheus:
+          enableOTLPReciever: true
           prometheusSpec:
             storageSpec:
               volumeClaimTemplate:

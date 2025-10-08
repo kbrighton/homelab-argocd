@@ -24,7 +24,37 @@ spec:
                 enabled: true
 
         gateway:
-          namespacePolicy: All
+          listeners:
+            web:           # HTTP listener that matches entryPoint `web`
+              port: 80
+              protocol: HTTP
+              namespacePolicy:
+                from: All
+
+            websecure:         # HTTPS listener that matches entryPoint `websecure`
+              port: 443
+              protocol: HTTPS  # TLS terminates inside Traefik
+              namespacePolicy:
+                from: All
+              mode: Terminate
+              certificateRefs:
+                - kind: Secret
+                  name: local-selfsigned-tls  # the Secret we created before the installation
+                  group: ""
+
+        logs:
+          general:
+            level: INFO
+          # This enables access logs, outputting them to Traefik's standard output by default. The [Access Logs Documentation](https://doc.traefik.io/traefik/observability/access-logs/) covers formatting, filtering, and output options.
+          access:
+            enabled: true
+
+        # Enables Prometheus for Metrics
+        metrics:
+          prometheus:
+            enabled: true
+
+
 
         ingressRoute:
           dashboard:
