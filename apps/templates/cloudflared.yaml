@@ -23,7 +23,7 @@ spec:
 
         ingress:
           - hostname: "*.kylebrighton.com" # or "*.example.com" (ensure a CNAME record for "*" is defined in your DNS)
-            service: https://192.168.0.8:443
+            service: https://traefik.traefik.svc.kubernetes.local:443
             originRequest:
               noTLSVerify: true
 
