@@ -26,6 +26,8 @@ spec:
         gateway:
           annotations:
                 cert-manager.io/cluster-issuer: letsencrypt-prod
+                cert-manager.io/secret-template: |
+                   {"annotations": {"reflector.v1.k8s.emberstack.com/reflection-allowed": "true"}
                 external-dns.alpha.kubernetes.io/target: 7c6ce3b1-97d9-4ac3-aefa-516c85871114.cfargotunnel.com
           listeners:
             web:           # HTTP listener that matches entryPoint `web`
