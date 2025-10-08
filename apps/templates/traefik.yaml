@@ -37,6 +37,10 @@ spec:
               namespacePolicy:
                 from: All
               mode: Passthrough
+              certificateRefs:
+                - kind: Secret
+                  name: local-selfsigned-tls  # the Secret we created before the installation
+                  group: ""
 
         logs:
           general:
