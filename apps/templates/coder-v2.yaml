@@ -15,6 +15,10 @@ spec:
       values:  |
         coder:
           tlsEnabled: true
+          tls:
+            secretNames:
+              - tls-secret
+
           # You can specify any environment variables you'd like to pass to Coder
           # here. Coder consumes environment variables listed in
           # `coder server --help`, and these environment variables are also passed
@@ -63,9 +67,6 @@ spec:
                   name: github-secret
                   key: CODER_OAUTH2_GITHUB_CLIENT_SECRET
 
-            tls:
-              secretNames:
-                - tls-secret
     repoURL: https://helm.coder.com/v2
     chart: coder
     targetRevision: 2.27.0
