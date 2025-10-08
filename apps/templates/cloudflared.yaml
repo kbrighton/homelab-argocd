@@ -13,7 +13,6 @@ spec:
   source:
     helm:
       values:  |
-
         tunnelConfig:
           name: traefik-tunnel
         tunnelSecrets:
