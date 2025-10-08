@@ -15,6 +15,12 @@ spec:
       values:  |
         provider:
           name: cloudflare
+        gatewayNamespace: traefik
+        sources:
+        - service
+        - ingress
+        - tcproute
+        - httproute
         env:
           - name: CF_API_TOKEN
             valueFrom:
