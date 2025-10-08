@@ -15,7 +15,8 @@ spec:
       values:  |
         provider:
           name: cloudflare
-          args: "---cloudflare-proxied"
+          args:
+          - "--cloudflare-proxied"
         gatewayNamespace: traefik
         sources:
         - service
