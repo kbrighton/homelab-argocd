@@ -40,7 +40,7 @@ spec:
             externalTrafficPolicy: Local
           annotations:
             service.beta.kubernetes.io/metal-lb: "true"
-            metallb.universe.tf/address-pool: first-pool # Optional: If using MetalLB
+            metallb.io/address-pool: first-pool # Optional: If using MetalLB
           type: LoadBalancer # Change to LoadBalancer if using MetalLB
           ports:
             web:
