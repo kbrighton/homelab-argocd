@@ -19,6 +19,10 @@ spec:
               enabled: false     #if you want to use with kubernetes ingress, set it to true.
           kubernetesGateway:
             enabled: true
+            statusAddress:
+              service:
+                namespace: traefik
+                name: traefik
 
         gateway:
           namespacePolicy: All
