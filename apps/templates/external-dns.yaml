@@ -22,6 +22,7 @@ spec:
         - service
         - ingress
         - gateway-httproute
+        policy: sync
         env:
           - name: CF_API_TOKEN
             valueFrom:
