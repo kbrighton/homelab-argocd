@@ -25,7 +25,10 @@ spec:
             type: LoadBalancer
           enableOTLPReciever: true
           prometheusSpec:
+            ruleSelectorNilUsesHelmValues: false
             serviceMonitorSelectorNilUsesHelmValues: false
+            podMonitorSelectorNilUsesHelmValues: false
+            probeSelectorNilUsesHelmValues: false
             storageSpec:
               volumeClaimTemplate:
                 spec:
