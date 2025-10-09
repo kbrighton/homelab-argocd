@@ -17,7 +17,7 @@ spec:
           annotations:
             external-dns.alpha.kubernetes.io/target: "7c6ce3b1-97d9-4ac3-aefa-516c85871114.cfargotunnel.com"
             external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
-          enabled: true
+          enabled: false
           hosts:
             - host: semaphore.kylebrighton.com
               paths:
