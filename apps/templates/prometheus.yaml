@@ -17,6 +17,9 @@ spec:
           service:
             type: LoadBalancer
         prometheusOperator:
+        crds:
+          upgradeJob:
+            enabled: true
           annotations:
             argocd.argoproj.io/hook: PreSync
             argocd.argoproj.io/hook-delete-policy: HookSucceeded
