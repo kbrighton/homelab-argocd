@@ -13,6 +13,10 @@ spec:
   source:
     helm:
       values: |
+        prometheus:
+          enabled: true
+          servicemonitor:
+            enabled: true
         installCRDs: true
         config:
           apiVersion: controller.config.cert-manager.io/v1alpha1

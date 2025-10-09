@@ -49,6 +49,8 @@ spec:
 
             - name: CODER_WILDCARD_ACCESS_URL
               value: "*.coder.kylebrighton.com"
+            - name: CODER_PROMETHEUS_ENABLE
+              value: "true"
             - name: CODER_HTTP_ACCESS
               value: "192.168.0.4"
             - name: CODER_OAUTH2_GITHUB_ALLOW_SIGNUPS
