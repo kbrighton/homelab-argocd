@@ -50,7 +50,7 @@ spec:
 
         logs:
           general:
-            level: DEBUG
+            level: INFO
           # This enables access logs, outputting them to Traefik's standard output by default. The [Access Logs Documentation](https://doc.traefik.io/traefik/observability/access-logs/) covers formatting, filtering, and output options.
           access:
             enabled: true
@@ -59,6 +59,8 @@ spec:
         metrics:
           prometheus:
             enabled: true
+            serviceMonitor:
+              enabled: true
 
 
 
