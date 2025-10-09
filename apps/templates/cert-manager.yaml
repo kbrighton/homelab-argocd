@@ -15,7 +15,7 @@ spec:
       values: |
         prometheus:
           enabled: true
-          servicemonitor:
+          podmonitor:
             enabled: true
         installCRDs: true
         config:
