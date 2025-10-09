@@ -16,6 +16,12 @@ spec:
         grafana:
           service:
             type: LoadBalancer
+        prometheusOperator:
+          annotations:
+            argocd.argoproj.io/hook: PreSync
+            argocd.argoproj.io/hook-delete-policy: HookSucceeded
+          service:
+            type: LoadBalancer
         prometheus:
           enableOTLPReciever: true
           prometheusSpec:
