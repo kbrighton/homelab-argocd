@@ -20,9 +20,9 @@ spec:
           annotations:
             argocd.argoproj.io/hook: PreSync
             argocd.argoproj.io/hook-delete-policy: HookSucceeded
+        prometheus:
           service:
             type: LoadBalancer
-        prometheus:
           enableOTLPReciever: true
           prometheusSpec:
             storageSpec:
