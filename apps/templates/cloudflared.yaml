@@ -13,8 +13,6 @@ spec:
   source:
     helm:
       values:  |
-        replica:
-          allNodes: false
         tunnelConfig:
           name: traefik-tunnel
         tunnelSecrets:
