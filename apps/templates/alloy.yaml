@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 1.3.0
+    targetRevision: 0.3.10
     chart: alloy-operator
   destination:
     server: https://kubernetes.default.svc
