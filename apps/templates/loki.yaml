@@ -13,14 +13,22 @@ spec:
     chart: loki
     helm:
       values: |
+        dnsService: "rke2-coredns-rke2-coredns"
+
         chunksCache:
           enabled: true
           allocatedMemory: 1024
         write:
           replicas: 1
+          persistence:
+            storageClass: "synostorage"
         read:
           replicas: 1
+          persistence:
+            storageClass: "synostorage"
         backend:
+          persistence:
+            storageClass: "synostorage"
           extraArgs:
             - '-config.expand-env=true'
           extraEnv:
