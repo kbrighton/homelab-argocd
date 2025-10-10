@@ -21,8 +21,38 @@ spec:
         read:
           replicas: 1
         backend:
+          extraArgs:
+            - '-config.expand-env=true'
+          extraEnv:
+            - name: GRAFANA-LOKI-S3-ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: minio-test
+                  key: endpoint
+            - name: GRAFANA-LOKI-S3-ACCESKEYID
+              valueFrom:
+                secretKeyRef:
+                  name: minio-test
+                  key: access_key_id
+            - name: GRAFANA-LOKI-S3-SECRETACCESSKEY
+              valueFrom:
+                secretKeyRef:
+                  name: minio-test
+                  key: access_key_secret
           replicas: 1
         loki:
+          storage:
+            type: "s3"
+            s3:
+              region: "us-east-1"
+              endpoint: "${GRAFANA-LOKI-S3-ENDPOINT}"
+              accessKeyId: "${GRAFANA-LOKI-S3-ACCESKEYID}"
+              secretAccessKey: "${GRAFANA-LOKI-S3-SECRETACCESSKEY}"
+        bucket_names:
+              chunks: "loki-chunks"
+              ruler: "loki-rules"
+              admin: "loki-admin"
+
           schemaConfig:
             configs:
               - from: "2024-04-01"
