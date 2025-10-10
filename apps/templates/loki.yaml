@@ -33,17 +33,17 @@ spec:
           extraArgs:
             - '-config.expand-env=true'
           extraEnv:
-            - name: GRAFANA-LOKI-S3-ENDPOINT
+            - name: GRAFANALOKIS3ENDPOINT
               valueFrom:
                 secretKeyRef:
                   name: minio-test
                   key: endpoint
-            - name: GRAFANA-LOKI-S3-ACCESKEYID
+            - name: GRAFANALOKIS3ACCESKEYID
               valueFrom:
                 secretKeyRef:
                   name: minio-test
                   key: access_key_id
-            - name: GRAFANA-LOKI-S3-SECRETACCESSKEY
+            - name: GRAFANALOKIS3SECRETACCESSKEY
               valueFrom:
                 secretKeyRef:
                   name: minio-test
@@ -54,9 +54,9 @@ spec:
             type: "s3"
             s3:
               region: "us-east-1"
-              endpoint: "${GRAFANA-LOKI-S3-ENDPOINT}"
-              accessKeyId: "${GRAFANA-LOKI-S3-ACCESKEYID}"
-              secretAccessKey: "${GRAFANA-LOKI-S3-SECRETACCESSKEY}"
+              endpoint: "${GRAFANALOKIS3ENDPOINT}"
+              accessKeyId: "${GRAFANALOKIS3ACCESKEYID}"
+              secretAccessKey: "${GRAFANALOKIS3SECRETACCESSKEY}"
             bucketNames:
               chunks: "loki-chunks"
               ruler: "loki-rules"
