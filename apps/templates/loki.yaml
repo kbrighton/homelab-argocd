@@ -13,7 +13,8 @@ spec:
     chart: loki
     helm:
       values: |
-        dnsService: "rke2-coredns-rke2-coredns"
+        global:
+          dnsService: "rke2-coredns-rke2-coredns"
 
         chunksCache:
           enabled: true
