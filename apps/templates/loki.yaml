@@ -57,8 +57,6 @@ spec:
               endpoint: "${GRAFANALOKIS3ENDPOINT}"
               accessKeyId: "${GRAFANALOKIS3ACCESKEYID}"
               secretAccessKey: "${GRAFANALOKIS3SECRETACCESSKEY}"
-              insecure: true
-              S3ForcePathStyle: true
             bucketNames:
               chunks: "loki-chunks"
               ruler: "loki-rules"
