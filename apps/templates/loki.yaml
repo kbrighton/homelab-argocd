@@ -23,10 +23,47 @@ spec:
           replicas: 1
           persistence:
             storageClass: "synostorage"
+          extraArgs:
+            - '-config.expand-env=true'
+          extraEnv:
+            - name: GRAFANALOKIS3ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: minio-test
+                  key: endpoint
+            - name: GRAFANALOKIS3ACCESKEYID
+              valueFrom:
+                secretKeyRef:
+                  name: minio-test
+                  key: access_key_id
+            - name: GRAFANALOKIS3SECRETACCESSKEY
+              valueFrom:
+                secretKeyRef:
+                  name: minio-test
+                  key: access_key_secret
         read:
           replicas: 1
           persistence:
             storageClass: "synostorage"
+          extraArgs:
+            - '-config.expand-env=true'
+          extraEnv:
+            - name: GRAFANALOKIS3ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: minio-test
+                  key: endpoint
+            - name: GRAFANALOKIS3ACCESKEYID
+              valueFrom:
+                secretKeyRef:
+                  name: minio-test
+                  key: access_key_id
+            - name: GRAFANALOKIS3SECRETACCESSKEY
+              valueFrom:
+                secretKeyRef:
+                  name: minio-test
+                  key: access_key_secret
+
         backend:
           persistence:
             storageClass: "synostorage"
