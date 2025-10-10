@@ -48,7 +48,7 @@ spec:
               endpoint: "${GRAFANA-LOKI-S3-ENDPOINT}"
               accessKeyId: "${GRAFANA-LOKI-S3-ACCESKEYID}"
               secretAccessKey: "${GRAFANA-LOKI-S3-SECRETACCESSKEY}"
-        bucket_names:
+            bucket_names:
               chunks: "loki-chunks"
               ruler: "loki-rules"
               admin: "loki-admin"
