@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 6.42.0
+    chart: loki
+    helm:
+      values: |
+        write:
+          replicas: 1
+        read:
+          replicas: 1
+        backend:
+          replicas: 1
+        loki:
+          commonConfig:
+            replication_factor: 1
+          auth_enabled: false
+        test:
+          enabled: false
+        storage:
+          type: 'filesystem'
+        minio:
+          enabled: true
+
+        monitoring:
+          selfMonitoring:
+            enabled: false
+        grafanaAgent:
+          installOperator: false
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+    automated:
+      prune: true
+      selfHeal: true
