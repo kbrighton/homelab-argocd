@@ -34,6 +34,7 @@ spec:
             serviceMonitorSelectorNilUsesHelmValues: false
             podMonitorSelectorNilUsesHelmValues: false
             probeSelectorNilUsesHelmValues: false
+            enableRemoteWriteReceiver: true
             storageSpec:
               volumeClaimTemplate:
                 spec:
