@@ -60,7 +60,6 @@ spec:
           access:
             enabled: true
         tracing:
-          enabled: true
           otlp:
             http:
               endpoint: "http://grafana-alloy.monitoring.svc.cluster.local:4318"
