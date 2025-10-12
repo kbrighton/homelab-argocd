@@ -16,8 +16,6 @@ spec:
 
         serviceMonitor:
           enabled: true
-        service:
-          type: LoadBalancer
         crds:
           deployAlloyCRD: true
           deployPodLogsCRD: true
