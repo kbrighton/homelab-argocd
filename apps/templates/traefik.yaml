@@ -72,6 +72,7 @@ spec:
           otlp:
             enabled: true
             http:
+              enabled: true
               endpoint: "http://grafana-alloy.monitoring.svc.cluster.local:4318"
 
         ingressRoute:
