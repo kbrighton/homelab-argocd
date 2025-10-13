@@ -19,6 +19,11 @@ spec:
         chunksCache:
           enabled: true
           allocatedMemory: 1024
+
+        gateway:
+          service:
+            type: LoadBalancer
+
         write:
           replicas: 1
           persistence:
