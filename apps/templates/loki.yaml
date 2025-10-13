@@ -132,6 +132,10 @@ spec:
           enabled: false
 
         monitoring:
+          dashboards:
+            enabled: true
+          rules:
+            enabled: true
           serviceMonitor:
             enabled: true
           selfMonitoring:
