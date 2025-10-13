@@ -20,10 +20,6 @@ spec:
           enabled: true
           allocatedMemory: 1024
 
-        gateway:
-          service:
-            type: LoadBalancer
-
         write:
           replicas: 1
           persistence:
@@ -137,6 +133,12 @@ spec:
           enabled: false
 
         monitoring:
+          dashboards:
+            enabled: true
+          rules:
+            enabled: true
+          serviceMonitor:
+            enabled: true
           selfMonitoring:
             enabled: false
         grafanaAgent:
