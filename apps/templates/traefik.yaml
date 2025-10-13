@@ -59,12 +59,6 @@ spec:
           # This enables access logs, outputting them to Traefik's standard output by default. The [Access Logs Documentation](https://doc.traefik.io/traefik/observability/access-logs/) covers formatting, filtering, and output options.
           access:
             enabled: true
-        tracing:
-          otlp:
-            enabled: true
-            http:
-              endpoint: "http://grafana-alloy.monitoring.svc.cluster.local:4318"
-
 
         # Enables Prometheus for Metrics
         metrics:
@@ -74,8 +68,11 @@ spec:
               enabled: true
             serviceMonitor:
               enabled: true
-
-
+        tracing:
+          otlp:
+            enabled: true
+            http:
+              endpoint: "http://grafana-alloy.monitoring.svc.cluster.local:4318"
 
         ingressRoute:
           dashboard:
