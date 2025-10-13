@@ -21,20 +21,20 @@ spec:
         grafana:
           service:
             type: LoadBalancer
-            adminUser: admin
-            grafana.ini:
-              database:
-                type: postgres
-                host: 192.168.1.3:5432  # Use the service name of the PostgreSQL instance
-                name: grafana
-                user: postgres
-                password: $__file{/etc/secrets/password}  # Securely fetches password from file
+          adminUser: admin
+          grafana.ini:
+            database:
+              type: postgres
+              host: 192.168.1.3:5432  # Use the service name of the PostgreSQL instance
+              name: grafana
+              user: postgres
+              password: $__file{/etc/secrets/password}  # Securely fetches password from file
 
-            extraSecretMounts:
-              - name: grafana-db-secret
-                secretName: grafana-rw  # Use the existing secret
-                mountPath: /etc/secrets
-                readOnly: true
+          extraSecretMounts:
+            - name: grafana-db-secret
+              secretName: grafana-rw  # Use the existing secret
+              mountPath: /etc/secrets
+              readOnly: true
 
         prometheusOperator:
           annotations:
