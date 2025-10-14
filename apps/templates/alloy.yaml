@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 0.3.10
+    targetRevision: 0.3.11
     chart: alloy-operator
     helm:
       values: |
