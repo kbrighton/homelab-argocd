@@ -52,6 +52,10 @@ spec:
             podMonitorSelectorNilUsesHelmValues: false
             probeSelectorNilUsesHelmValues: false
             enableRemoteWriteReceiver: true
+            storage:
+              tsdb:
+                out_of_order_time_window: 30m
+
             storageSpec:
               volumeClaimTemplate:
                 spec:
