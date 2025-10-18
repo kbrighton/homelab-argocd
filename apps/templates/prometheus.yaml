@@ -17,6 +17,7 @@ spec:
           enabled: true
           upgradeJob:
             enabled: true
+            forceConflicts: true
 
         grafana:
           service:
