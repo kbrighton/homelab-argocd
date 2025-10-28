@@ -12,6 +12,7 @@ spec:
   project: default
   source:
     helm:
+      skipCrds: true
       values:  |
 
         experimental:
