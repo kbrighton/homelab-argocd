@@ -5,11 +5,19 @@
     "config:recommended"
   ],
   "argocd": {
-    "fileMatch": ["\\.yaml$"]
+    "managerFilePatterns": [
+      "/\\.yaml$/"
+    ]
   },
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor","patch","pin","digest","major"]
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest",
+        "major"
+      ]
     }
   ]
 }
