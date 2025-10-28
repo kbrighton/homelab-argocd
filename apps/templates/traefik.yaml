@@ -16,7 +16,7 @@ spec:
       values:  |
 
         image:
-          tag: latest
+          pullPolicy: Always
 
         experimental:
           otlpLogs: true
