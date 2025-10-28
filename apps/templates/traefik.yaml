@@ -16,6 +16,7 @@ spec:
       values:  |
 
         image:
+          tag: v3.5.4
           pullPolicy: Always
 
         experimental:
