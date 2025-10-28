@@ -15,6 +15,9 @@ spec:
       skipCrds: true
       values:  |
 
+        image:
+          tag: latest
+
         experimental:
           otlpLogs: true
           plugins:
