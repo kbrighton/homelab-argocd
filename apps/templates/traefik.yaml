@@ -15,10 +15,6 @@ spec:
       skipCrds: true
       values:  |
 
-        image:
-          tag: v3.5.4
-          pullPolicy: Always
-
         experimental:
           otlpLogs: true
           plugins:
