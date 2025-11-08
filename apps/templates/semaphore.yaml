@@ -33,7 +33,7 @@ spec:
 
     repoURL: https://semaphoreui.github.io/charts
     chart: semaphore
-    targetRevision: 16.0.6
+    targetRevision: 16.0.9
   syncPolicy:
     automated:
       prune: true
