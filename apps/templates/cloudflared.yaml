@@ -29,7 +29,7 @@ spec:
 
     repoURL: https://community-charts.github.io/helm-charts
     chart: cloudflared
-    targetRevision: 2.2.3
+    targetRevision: 2.2.4
   syncPolicy:
     automated:
       prune: true
