@@ -14,7 +14,7 @@ spec:
     helm:
       values:  |
         image:
-          tag: 2.16.45
+          tag: v2.16.45
         ingress:
           annotations:
             external-dns.alpha.kubernetes.io/target: "7c6ce3b1-97d9-4ac3-aefa-516c85871114.cfargotunnel.com"
