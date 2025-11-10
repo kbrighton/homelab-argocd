@@ -43,7 +43,7 @@ spec:
                   name: minio-test
                   key: access_key_secret
         read:
-          replicas: 1
+          replicas: 2
           persistence:
             storageClass: "synostorage"
           extraArgs:
