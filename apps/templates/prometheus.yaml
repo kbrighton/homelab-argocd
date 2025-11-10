@@ -38,8 +38,8 @@ spec:
               readOnly: true
 
         prometheusOperator:
-        kubeletEndpointsEnabled: false
-        kubeletEndpointSliceEnabled: true
+          kubeletEndpointsEnabled: false
+          kubeletEndpointSliceEnabled: true
           annotations:
             argocd.argoproj.io/hook: PreSync
             argocd.argoproj.io/hook-delete-policy: HookSucceeded
