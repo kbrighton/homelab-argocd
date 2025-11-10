@@ -21,7 +21,7 @@ spec:
           allocatedMemory: 1024
 
         write:
-          replicas: 1
+          replicas: 3
           persistence:
             storageClass: "synostorage"
           extraArgs:
@@ -43,7 +43,7 @@ spec:
                   name: minio-test
                   key: access_key_secret
         read:
-          replicas: 2
+          replicas: 3
           persistence:
             storageClass: "synostorage"
           extraArgs:
@@ -86,7 +86,7 @@ spec:
                 secretKeyRef:
                   name: minio-test
                   key: access_key_secret
-          replicas: 1
+          replicas: 3
         loki:
           storage:
             type: "s3"
