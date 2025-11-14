@@ -13,6 +13,7 @@ spec:
   source:
     helm:
       values:  |
+        domainFilters: ["kylebrighton.com"]
         provider:
           name: cloudflare
           args:

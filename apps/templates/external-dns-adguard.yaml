@@ -1,0 +1,70 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns-adguard
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: external-dns-adguard
+  project: default
+  source:
+    helm:
+      values:  |
+        domainFilters: ["int.kylebrighton.com"]
+        provider:
+          name: webhook
+          webhook:
+            image:
+              repository: ghcr.io/muhlba91/external-dns-provider-adguard
+              tag: latest
+            service:
+              port: 8888
+            livenessProbe:
+              httpGet:
+                path: /healthz
+                port: 8080
+              initialDelaySeconds: 10
+              timeoutSeconds: 5
+            readinessProbe:
+              httpGet:
+                path: /healthz
+                port: 8080
+              initialDelaySeconds: 10
+              timeoutSeconds: 5
+            env:
+              - name: ADGUARD_URL
+                valueFrom:
+                  secretKeyRef:
+                    name: adguard-configuration
+                    key: url
+              - name: ADGUARD_USER
+                valueFrom:
+                  secretKeyRef:
+                    name: adguard-configuration
+                    key: user
+              - name: ADGUARD_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: adguard-configuration
+                    key: password
+              - name: LOG_LEVEL
+                value: debug
+              - name: DRY_RUN
+                value: "false"
+        gatewayNamespace: traefik
+        sources:
+        - service
+        - ingress
+        - gateway-httproute
+        policy: sync
+
+    chart: external-dns
+    repoURL: https://kubernetes-sigs.github.io/external-dns
+    targetRevision: 1.19.0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
