@@ -68,7 +68,7 @@ spec:
               enabled: true
               http:
                 enabled: true
-                endpoint: "http://grafana-k8s-monitoring-alloy-metrics.monitoring.svc.cluster.local:4318"
+                endpoint: "http://grafana-k8s-monitoring-alloy-receiver.monitoring.svc.cluster.local:4318"
 
           # This enables access logs, outputting them to Traefik's standard output by default. The [Access Logs Documentation](https://doc.traefik.io/traefik/observability/access-logs/) covers formatting, filtering, and output options.
           access:
@@ -77,7 +77,7 @@ spec:
               enabled: true
               http:
                 enabled: true
-                endpoint: "http://grafana-k8s-monitoring-alloy-receiver.default.svc.cluster.local:4318"
+                endpoint: "http://grafana-k8s-monitoring-alloy-receiver.monitoring.svc.cluster.local:4318"
 
 
         # Enables Prometheus for Metrics
@@ -93,7 +93,7 @@ spec:
             enabled: true
             http:
               enabled: true
-              endpoint: "http://grafana-k8s-monitoring-alloy-receiver.default.svc.cluster.local:4318"
+              endpoint: "http://grafana-k8s-monitoring-alloy-receiver.monitoring.svc.cluster.local:4318"
 
         ingressRoute:
           dashboard:
