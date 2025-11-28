@@ -63,7 +63,6 @@ spec:
 
         logs:
           general:
-            level: DEBUG
             otlp:
               enabled: true
               http:
