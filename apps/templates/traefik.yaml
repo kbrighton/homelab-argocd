@@ -20,10 +20,10 @@ spec:
           plugins:
             traefikoidc:
               moduleName: "github.com/lukaszraczylo/traefikoidc"
-              version: "v0.8.10"
-            cloudflarewarp:
-              moduleName: "github.com/JimmyTsai16/cloudflarewarp"
-              version: "v0.0.1"
+              version: "v0.8.11"
+            traefik-cloudflare-plugin:
+              moduleName: github.com/Vandebron/traefik-cloudflare-plugin
+              version: v1.0.1
 
         deployment:
           kind: DaemonSet
