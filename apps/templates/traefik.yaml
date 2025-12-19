@@ -138,7 +138,7 @@ spec:
 
     chart: traefik
     repoURL: https://traefik.github.io/charts
-    targetRevision: 38.0.0
+    targetRevision: 38.0.1
   syncPolicy:
     automated:
       prune: true
