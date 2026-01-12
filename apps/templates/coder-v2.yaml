@@ -15,6 +15,7 @@ spec:
       values:  |
         coder:
           service:
+            enable: true
             type: LoadBalancer
           tlsEnabled: true
           tls:
