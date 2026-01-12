@@ -15,6 +15,7 @@ spec:
     repoURL: https://github.com/kbrighton/homelab-argocd.git
     targetRevision: HEAD
   syncPolicy:
+    serverSideApply: true
     automated:
       prune: true
       selfHeal: true

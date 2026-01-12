@@ -14,6 +14,8 @@ spec:
     helm:
       values:  |
         coder:
+          service:
+            type: LoadBalancer
           tlsEnabled: true
           tls:
             secretNames:
