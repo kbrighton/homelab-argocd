@@ -14,29 +14,21 @@ spec:
     helm:
       values:  |
         domainFilters: ["int.kylebrighton.com"]
-        provider:
-          name: webhook
-          webhook:
-            image:
-              repository: ghcr.io/roosmaa/external-dns-technitium-webhook
-              tag: main
-            service:
-              port: 5580
-            readinessProbe:
-              httpGet:
-                path: /health
-                port: 5580
-              initialDelaySeconds: 10
-              timeoutSeconds: 5
-          env:
-            - name: RUST_LOG
-              value: "external_dns_technitium_webhook=info"
-            - name: LISTEN_PORT
-              value: "5580"
-            - name: TECHNITIUM_URL
-              value: "http://192.168.1.176:5380"
-            - name: ZONE
-              value: "int.kylebrighton.com"
+        provider: rfc2136
+        extraArgs:
+          - --rfc2136-host=192.168.1.176
+          - --rfc2136-port=53
+          - --rfc2136-zone=int.kylebrighton.com
+          - --rfc2136-tsig-secret-alg=hmac-sha256
+          - --rfc2136-tsig-keyname=external-dns
+          - --rfc2136-tsig-axfr
+
+        env:
+          - name: EXTERNAL_DNS_RFC2136_TSIG_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: tsig-key
+                key: key
         gatewayNamespace: traefik
         sources:
         - service
