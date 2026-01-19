@@ -19,7 +19,6 @@ spec:
           webhook:
             image:
               repository: roosmaa/external-dns-technitium-webhook
-              tag: latest
             service:
               port: 5580
             readinessProbe:
