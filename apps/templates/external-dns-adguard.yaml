@@ -18,7 +18,7 @@ spec:
           name: webhook
           webhook:
             image:
-              repository: roosmaa/external-dns-technitium-webhook
+              repository: ghcr.io/roosmaa/external-dns-technitium-webhook
               tag: main
             service:
               port: 5580
