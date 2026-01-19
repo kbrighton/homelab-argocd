@@ -14,6 +14,7 @@ spec:
     helm:
       values:  |
         domainFilters: ["kylebrighton.com"]
+        excludeDomains: ["int.kylebrighton.com"]
         provider:
           name: cloudflare
           args:
