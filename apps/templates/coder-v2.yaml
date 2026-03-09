@@ -76,7 +76,7 @@ spec:
 
     repoURL: https://helm.coder.com/v2
     chart: coder
-    targetRevision: 2.30.2
+    targetRevision: 2.31.3
   syncPolicy:
     automated:
       prune: true
