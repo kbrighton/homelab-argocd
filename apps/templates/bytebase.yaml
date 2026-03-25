@@ -24,7 +24,7 @@ spec:
 
     repoURL: https://bytebase.github.io/bytebase/
     chart: bytebase
-    targetRevision: 1.1.1
+    targetRevision: 1.1.2
   syncPolicy:
     automated:
       prune: true
