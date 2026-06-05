@@ -29,7 +29,8 @@ spec:
           kind: DaemonSet
 
         providers:
-          allowExternalNameServices: true
+          kubernetesCRD:
+            allowExternalNameServices: true
           kubernetesIngress:
             publishedService:
               enabled: true     #if you want to use with kubernetes ingress, set it to true.
