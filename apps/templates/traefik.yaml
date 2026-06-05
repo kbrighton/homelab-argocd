@@ -19,7 +19,7 @@ spec:
           plugins:
             traefikoidc:
               moduleName: "github.com/lukaszraczylo/traefikoidc"
-              version: "v0.8.24"
+              version: "v1.0.26"
             cloudflarewarp:
               moduleName: github.com/PseudoResonance/cloudflarewarp
               version: v1.4.2
@@ -29,8 +29,7 @@ spec:
           kind: DaemonSet
 
         providers:
-          kubernetesCRD:
-            allowExternalNameServices: true
+          allowExternalNameServices: true
           kubernetesIngress:
             publishedService:
               enabled: true     #if you want to use with kubernetes ingress, set it to true.
