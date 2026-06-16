@@ -65,7 +65,7 @@ spec:
               certificateRefs:
                 - name: traefik-tls  # the Secret we created before the installation
 
-        logs:
+        log:
           general:
             otlp:
               enabled: true
@@ -74,7 +74,7 @@ spec:
                 endpoint: "http://grafana-k8s-monitoring-alloy-receiver.monitoring.svc.cluster.local:4318"
 
           # This enables access logs, outputting them to Traefik's standard output by default. The [Access Logs Documentation](https://doc.traefik.io/traefik/observability/access-logs/) covers formatting, filtering, and output options.
-          access:
+          accessLog:
             enabled: true
             otlp:
               enabled: true
