@@ -34,7 +34,7 @@ spec:
         - service
         - ingress
         - gateway-httproute
-        policy: sync
+        policy: upsert-only
 
     chart: external-dns
     repoURL: https://kubernetes-sigs.github.io/external-dns
