@@ -17,8 +17,8 @@ spec:
           tag: v2.16.45
         ingress:
           annotations:
-            external-dns.alpha.kubernetes.io/target: "7c6ce3b1-97d9-4ac3-aefa-516c85871114.cfargotunnel.com"
-            external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+            external-dns.kubernetes.io/target: "7c6ce3b1-97d9-4ac3-aefa-516c85871114.cfargotunnel.com"
+            external-dns.kubernetes.io/cloudflare-proxied: "true"
           enabled: false
           hosts:
             - host: semaphore.kylebrighton.com
