@@ -112,15 +112,16 @@ spec:
           annotations:
             service.beta.kubernetes.io/metal-lb: "true"
             metallb.io/address-pool: first-pool # Optional: If using MetalLB
-          type: LoadBalancer # Change to LoadBalancer if using MetalLB
+          spec:
+            type: LoadBalancer # Change to LoadBalancer if using MetalLB
 
         ports:
           web:
             port: 80
-            exposePort: 80
+            exposedPort: 80
           websecure:
             port: 443
-            exposePort: 443
+            exposedPort: 443
 
     chart: traefik
     repoURL: https://traefik.github.io/charts
